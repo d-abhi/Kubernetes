@@ -21,7 +21,8 @@ pip3 install awscli --upgrade
 
 export PATH="$PATH:/home/ubuntu/.local/bin/"
 
-Install KOPS (our hero for today)
+Install KOPS 
+
 curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
 
 chmod +x kops-linux-amd64
@@ -35,15 +36,18 @@ IAMFullAccess
 AmazonVPCFullAccess
 
 Set up AWS CLI configuration on your EC2 Instance or Laptop.
+
 Run aws configure
 
 Kubernetes Cluster Installation
 Please follow the steps.
 
 Create S3 bucket for storing the KOPS objects.
+
 aws s3api create-bucket --bucket kops-abhi-storage --region us-east-1
 
 Create the cluster
+
 kops create cluster --name=demok8scluster.k8s.local --state=s3://kops-abhi-storage --zones=us-east-1a --node-count=1 --node-size=t2.micro --master-size=t2.micro  --master-volume-size=8 --node-volume-size=8
 
 Important: Edit the configuration as there are multiple resources created which won't fall into the free tier.
