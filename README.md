@@ -30,9 +30,13 @@ chmod +x kops-linux-amd64
 sudo mv kops-linux-amd64 /usr/local/bin/kops
 
 Provide the below permissions to your IAM user. If you are using the admin user, the below permissions are available by default
+
 AmazonEC2FullAccess
+
 AmazonS3FullAccess
+
 IAMFullAccess
+
 AmazonVPCFullAccess
 
 Set up AWS CLI configuration on your EC2 Instance or Laptop.
